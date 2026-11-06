@@ -1,0 +1,9 @@
+# Godot 4+ specific ignores
+.godot/
+.nomedia
+
+# Secrets that Godot may write next to export_presets.cfg
+export_credentials.cfg
+
+# Local web export output (CI builds its own copy for GitHub Pages)
+build/

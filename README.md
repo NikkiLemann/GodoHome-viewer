@@ -1,0 +1,29 @@
+# GodoHome viewer
+
+A web viewer for [GodoHome](https://github.com/NikkiLemann/GodoHome) projects on phones, built as a Godot 4 web export and published with GitHub Pages.
+
+> **Experimental.** This repository currently contains only the T04 experiment: a quick test of whether a Godot web export is good enough for the GodoHome v0.2 mobile viewer. The code is throwaway and is not the real viewer.
+
+## What the experiment checks
+
+- **Android (Chrome):** augmented reality through WebXR. A 1 m box is placed in the room and should stay in place while you walk around it.
+- **iPhone (Safari):** a virtual view without AR. The phone's orientation turns the camera.
+- Hit-testing (pointing at a real surface) and loading a glTF file at runtime.
+
+The task description is [T04 in the GodoHome repository](https://github.com/NikkiLemann/GodoHome/blob/main/tasks/T04-experiment-mobile-web.md). The findings will be in the report `docs/experiments/mobile-web.md` in the GodoHome repository, linked here when it exists.
+
+## Try it
+
+Open the published page on your phone: <https://nikkilemann.github.io/GodoHome-viewer/> (available once the first build has been published).
+
+AR needs an ARCore-capable Android phone with Chrome. WebXR only works on pages served over HTTPS (or `localhost`).
+
+## Building
+
+- Godot 4.7.2 with the web export templates installed.
+- The web export is built without thread support, because GitHub Pages cannot send the HTTP headers that threads in the browser need.
+- Every push to `main` builds the export with GitHub Actions and publishes it to GitHub Pages.
+
+## License
+
+MIT, see [LICENSE](LICENSE).
