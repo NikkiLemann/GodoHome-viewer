@@ -22,7 +22,10 @@ AR needs an ARCore-capable Android phone with Chrome. WebXR only works on pages 
 
 - Godot 4.7.2 with the web export templates installed.
 - The web export is built without thread support, because GitHub Pages cannot send the HTTP headers that threads in the browser need.
-- Every push to `main` builds the export with GitHub Actions and publishes it to GitHub Pages.
+- Export with the **Web** preset (*Project → Export*). It writes to `build/`, which git ignores.
+- Open the export through a web server, not by opening `index.html` as a file: the browser refuses to load the other files from `file://` ("Failed to fetch"). Godot's *Run in Browser* button starts a local server on port 8060.
+- To test on an Android phone over USB, forward the port with `adb reverse tcp:8060 tcp:8060` (USB debugging must be on), then open `http://localhost:8060` in Chrome on the phone. `localhost` counts as a secure context, so WebXR works there.
+- Planned: every push to `main` builds the export with GitHub Actions and publishes it to GitHub Pages.
 
 ## License
 
