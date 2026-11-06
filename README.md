@@ -14,7 +14,7 @@ The task description is [T04 in the GodoHome repository](https://github.com/Nikk
 
 ## Try it
 
-Open the published page on your phone: <https://nikkilemann.github.io/GodoHome-viewer/> (available once the first build has been published).
+Open the published page on your phone: <https://nikkilemann.github.io/GodoHome-viewer/>.
 
 AR needs an ARCore-capable Android phone with Chrome. WebXR only works on pages served over HTTPS (or `localhost`).
 
@@ -25,7 +25,7 @@ AR needs an ARCore-capable Android phone with Chrome. WebXR only works on pages 
 - Export with the **Web** preset (*Project → Export*). It writes to `build/`, which git ignores.
 - Open the export through a web server, not by opening `index.html` as a file: the browser refuses to load the other files from `file://` ("Failed to fetch"). Godot's *Run in Browser* button starts a local server on port 8060.
 - To test on an Android phone over USB, forward the port with `adb reverse tcp:8060 tcp:8060` (USB debugging must be on), then open `http://localhost:8060` in Chrome on the phone. `localhost` counts as a secure context, so WebXR works there.
-- Planned: every push to `main` builds the export with GitHub Actions and publishes it to GitHub Pages.
+- Every push to `main` builds a release export with GitHub Actions and publishes it to GitHub Pages ([.github/workflows/pages.yml](.github/workflows/pages.yml)). It can also be started by hand from the *Actions* tab.
 
 ## License
 
